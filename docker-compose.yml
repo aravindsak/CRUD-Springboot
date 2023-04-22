@@ -1,22 +1,32 @@
-mongodb:
-  image: mongo
-  container_name: mongo_db
-  ports:
-    - 27017:27017
-  volumes:
-    - mongo:/data
-  environment:
-    - MONGO_INITDB_ROOT_USERNAME=cat
-    - MONGO_INITDB_ROOT_PASSWORD=meow
-mongo-express:
-  image: mongo-express
-  container_name: mongo_express
-  restart: always
-  ports:
-    - 8081:8081
-  environment:
-    - ME_CONFIG_MONGODB_ADMINUSERNAMEcat
-    - ME_CONFIG_MONGODB_ADMINPASSWORD=meow
-    - ME_CONFIG_MONGODB_SERVER=mongodb
+version: "3"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8083:8083"
+  mongodb:
+    image: mongo
+    container_name: mongo_db
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo:/data
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=cat
+      - MONGO_INITDB_ROOT_PASSWORD=meow
+  mongo-express:
+    image: mongo-express
+    container_name: mongo_express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAMEcat
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=meow
+      - ME_CONFIG_MONGODB_SERVER=mongodb
 volumes:
   mongo: {}
+
+
