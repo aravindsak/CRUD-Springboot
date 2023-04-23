@@ -1,1 +1,9 @@
-
+spring:
+  data:
+    mongodb:
+      username: cat
+      password: meow
+      host: localhost
+      port: 27017
+      database: newdb
+      authentication-database: admin
