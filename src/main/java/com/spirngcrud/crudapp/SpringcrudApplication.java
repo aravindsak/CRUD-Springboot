@@ -17,6 +17,10 @@ public class SpringcrudApplication {
 	public String hello(){
 		return "springboot rest-api" ;
 	}
+	@GetMapping("/test")
+	public String test(){
+		return "test the build image" ;
+	}
 	public static void main(String[] args) {
 		SpringApplication.run(SpringcrudApplication.class, args);
 	}
