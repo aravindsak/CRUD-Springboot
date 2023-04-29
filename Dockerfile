@@ -1,12 +1,10 @@
 FROM openjdk:17-jdk-slim
 
-COPY target/springcrud-0.0.1-SNAPSHOT.jar .
+WORKDIR /app
 
-# Copy the docker-entrypoint.sh file
-COPY docker-entrypoint.sh .
+COPY target/springcrud-0.0.1-SNAPSHOT.jar /app/springcrud-mongo.jar
 
-# Make the entrypoint script executable
-RUN chmod +x docker-entrypoint.sh
+EXPOSE 8080
 
-# Set the entrypoint to the script
-ENTRYPOINT ["./docker-entrypoint.sh"]
+ENTRYPOINT ["java", "-jar", "/app/springcrud-mongo.jar"]
+
