@@ -8,10 +8,10 @@ sleep 10
 
 # Check if the application is still running, and restart it if necessary
 while true; do
-    PID=$(pgrep -f "java -jar target/my-spring-boot-app.jar")
+    PID=$(pgrep -f "java -jar target/springcrud-0.0.1-SNAPSHOT.jar")
     if [ -z "$PID" ]; then
         echo "Application stopped. Restarting..."
-        java -jar target/my-spring-boot-app.jar &
+        java -jar target/springcrud-0.0.1-SNAPSHOT.jar &
         sleep 10
     fi
     sleep 5
