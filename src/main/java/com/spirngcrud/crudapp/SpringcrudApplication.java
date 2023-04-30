@@ -19,7 +19,7 @@ public class SpringcrudApplication {
 	}
 	@GetMapping("/test")
 	public String test(){
-		return "test the build image and revision" ;
+		return "test the build image and new-build" ;
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(SpringcrudApplication.class, args);
